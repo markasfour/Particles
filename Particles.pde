@@ -1,63 +1,50 @@
 ParticleSystem ps;
 
-void setup() 
-{
+void setup() {
   size(640,480);
+  surface.setResizable(true);
   noStroke();
   ps = new ParticleSystem(new PVector(width/2,height/2));
   for (int i = 0; i < 500; i++)
-  {
     ps.addParticle();
-  }
 }
 
-void draw() 
-{
-  //background(0);
-  fill(0,100);
+void draw() {
+  fill(0, 77);
   rect(0, 0, width, height);
   ps.run();
 }
 
-class ParticleSystem 
-{
+class ParticleSystem {
   ArrayList<Particle> particles;
   PVector origin;
 
-  ParticleSystem(PVector location) 
-  {
+  ParticleSystem(PVector location) {
     origin = location.copy();
     particles = new ArrayList<Particle>();
   }
 
-  void addParticle() 
-  {
+  void addParticle() {
     particles.add(new Particle());
   }
 
-  void run() 
-  {
+  void run() {
     for (int i = 0; i < particles.size(); i++) 
-    {
-      Particle p = particles.get(i);
-      p.run();
+      particles.get(i).run();
+      
+    if(mousePressed && (mouseButton == RIGHT)) {  //add 20 particles on right click
+      for (int i = 0; i < 20; i++) 
+        particles.add(new Particle());
     }
   }
 }
 
-class Particle 
-{
-  PVector location;
-  PVector velocity;
-  PVector acceleration;
-  float angle;
-  float radius;
-  float R;
-  float G;
-  float B;
+class Particle {
+  PVector location, velocity, acceleration;
+  float angle, radius;
+  float R, G, B;
 
-  Particle() 
-  {
+  Particle() {
     location = new PVector(random(width), random(height));
     velocity = new PVector(0,0);
     acceleration = new PVector(.05, .05);
@@ -67,33 +54,26 @@ class Particle
     B = random(255);
   }
 
-  void run() 
-  {
+  void run() {
     update();
     display();
   }
 
-  float findAngle(float x, float y) 
-  {
+  float findAngle(float x, float y) {
     float a = atan2(y - location.y, x - location.x);
     return a;
   }
   
-  float findHypotenuse(float x, float y)
-  {
+  float findHypotenuse(float x, float y) {
     return dist(x, y, location.x, location.y);
   }
 
-  // Method to update location
-  void update() 
-  {
-    if (mousePressed)
-    {
+  void update() {
+    if (mousePressed && (mouseButton == LEFT)) {  //force push away on left click
       acceleration = new PVector(-1, -1);
       velocity.limit(7);
     }
-    else
-    {
+    else {  //pull in on default
       acceleration = new PVector(.1, .1);
       velocity.limit(4);
     }
@@ -108,10 +88,8 @@ class Particle
     location.add(velocity);
   }
 
-  // Method to display
-  void display() 
-  {
+  void display() {
     fill(R, G, B);
-    ellipse(location.x, location.y, 8, 8);
+    ellipse(location.x, location.y, 2 + (1 * abs(velocity.x/2)) + (1 * abs(velocity.y/2)), 2 + (1 * abs(velocity.x/2)) + (1 * abs(velocity.y/2)));
   }
 }
