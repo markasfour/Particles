@@ -13,7 +13,9 @@ void setup()
 
 void draw() 
 {
-  background(0);
+  //background(0);
+  fill(0,100);
+  rect(0, 0, width, height);
   ps.run();
 }
 
@@ -49,13 +51,13 @@ class Particle
   PVector velocity;
   PVector acceleration;
   float angle;
+  float radius;
   float R;
   float G;
   float B;
 
   Particle() 
   {
-    //location = new PVector(random(0, width), random(0, height));
     location = new PVector(random(width), random(height));
     velocity = new PVector(0,0);
     acceleration = new PVector(.05, .05);
@@ -85,24 +87,31 @@ class Particle
   // Method to update location
   void update() 
   {
+    if (mousePressed)
+    {
+      acceleration = new PVector(-1, -1);
+      velocity.limit(7);
+    }
+    else
+    {
+      acceleration = new PVector(.1, .1);
+      velocity.limit(4);
+    }
+    
     angle = findAngle(mouseX, mouseY);
     
-    float r = findHypotenuse(mouseX, mouseY);
+    radius = findHypotenuse(mouseX, mouseY);
     
     velocity.x += acceleration.x * cos(angle);
     velocity.y += acceleration.y * sin(angle);
+    
     location.add(velocity);
   }
 
   // Method to display
   void display() 
   {
-    float r = R * (velocity.x/1.5) * (velocity.y/1.5);
-    float g = G * (velocity.x/1.5) * (velocity.y/1.5);
-    float b = B * (velocity.x/1.5) * (velocity.y/1.5);
     fill(R, G, B);
-    tint(255, 127);
     ellipse(location.x, location.y, 8, 8);
-    //ellipse(location.x,location.y,8 * (velocity.x/1.5) * (velocity.y/1.5),8 * (velocity.x/1.5) * (velocity.y/1.5));
   }
 }
