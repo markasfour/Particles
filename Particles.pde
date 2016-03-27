@@ -2,7 +2,7 @@ ParticleSystem ps;
 
 void setup() {
   size(640,480);
-  surface.setResizable(true);
+  //surface.setResizable(true);
   noStroke();
   ps = new ParticleSystem(new PVector(width/2,height/2));
   for (int i = 0; i < 500; i++)
@@ -20,7 +20,7 @@ class ParticleSystem {
   PVector origin;
 
   ParticleSystem(PVector location) {
-    origin = location.copy();
+    origin = location;
     particles = new ArrayList<Particle>();
   }
 
