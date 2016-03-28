@@ -1,7 +1,7 @@
 ParticleSystem ps;
 
 void setup() {
-  size(640,480);
+  size(window.innerWidth / 2, 480);
   //surface.setResizable(true);
   noStroke();
   ps = new ParticleSystem(new PVector(width/2,height/2));
@@ -9,7 +9,9 @@ void setup() {
     ps.addParticle();
 }
 
-void draw() {
+void draw() { 
+  if (width != window.innerWidth / 2)
+	size(window.innerWidth / 2, 480);
   fill(0, 77);
   rect(0, 0, width, height);
   ps.run();

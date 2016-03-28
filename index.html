@@ -23,17 +23,17 @@
 		</div>
 		<!--TOP LINKS-->
 		<div id="top-link-container">
-			<a href="https://markasfour.github.io/#projects">
+			<a href="https://markasfour.github.io/#projects" style="border-bottom: 2px solid #FF0000;">
 				<i class="fa fa-suitcase"></i> Projects 
 			</a>
 		</div>
 		<div id="top-link-container">
-			<a href="https://github.com/markasfour/Particles">
+			<a href="https://github.com/markasfour/Particles" style="border-bottom: 2px solid #00FFF0;">
 				<i class="fa fa-github"></i> Github	
 			</a>
 		</div>
 		<div id="top-link-container">
-			<a href="https://markasfour.github.io">
+			<a href="https://markasfour.github.io" style="border-bottom: 2px solid #FFBF00;">
 				<i class="fa fa-home"></i> Home 
 			</a>
 		</div>
@@ -41,7 +41,7 @@
 	</header>
 
 	<!--AD-->
-	<div id="horizontal-ad" align="center">
+	<div align="center">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- Particles Ad 1 -->
 		<ins class="adsbygoogle"
@@ -50,12 +50,40 @@
      	 	 data-ad-slot="8295515015"></ins>
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+		</script>	
 	</div>
 
 	<!--PARTICLES DEMO-->
 	<div id="demo-showcase">
-		<div id="demo-container" align="center">
+		<div id="instructions">
+			<p id="instructions-title">Instructions</p>
+			<hr>
+			<p><span style="border-bottom: 2px solid #0FFF00;
+							padding: 5px;
+							background-color: #1F1F1F;
+							border-radius: 3px 3px 3px 3px;
+							box-shadow: 1px 1px 1px #000000;">
+				Move mouse</span></p>
+				<p>and particles will follow and orbit</p>
+			<hr>
+			<p><span style="border-bottom: 2px solid #FF00FF;
+							padding: 5px;
+							background-color: #1F1F1F;
+							border-radius: 3px 3px 3px 3px;
+							box-shadow: 1px 1px 1px #000000;">
+				Left click</span></p>
+				<p>to push particles</p>
+			<hr>
+			<p><span style="border-bottom: 2px solid #0000FF;
+							padding: 5px;
+							background-color: #1F1F1F;
+							border-radius: 3px 3px 3px 3px;
+							box-shadow: 1px 1px 1px #000000;">
+				Right click</span></p>
+				<p>to add particles</p>
+			<hr>
+		</div>
+		<div id="demo-container">
 			<canvas data-processing-sources="Particles.pde" id="demo"></canvas>
 		</div>
 	</div>
