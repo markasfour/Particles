@@ -66,6 +66,7 @@ body {
 	width: 85%;
 	margin: 0 auto;
 	display: table;
+	padding: 5px
 }
 
 #instructions {
@@ -97,6 +98,7 @@ body {
 }
 
 #about-container {
+	padding: 5px;
 	width: 85%;
 	margin: 0 auto;
 	display: block;
