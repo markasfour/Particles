@@ -33,7 +33,7 @@ body {
 }
 
 #logo {
-	padding: 5px;
+	padding: 5px 5px 0 5px;
 	float: left;
 	color: #F2F2F2;
 	font-size: 40px;
@@ -43,11 +43,10 @@ body {
 
 #top-link-container {
 	float: right;
-	padding: 25px 10px 10px 10px;	
+	padding: 25px 10px 0 10px;	
 }
 
 #top-link-container > a {
-	padding: 5px;
 	text-decoration: none;
 	color: #F2F2F2;
 	font-size: 14px;
