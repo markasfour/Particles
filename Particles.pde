@@ -7,6 +7,8 @@ void setup() {
   ps = new ParticleSystem(new PVector(width/2,height/2));
   for (int i = 0; i < 500; i++)
     ps.addParticle();
+  mouseX = window.innerWidth / 4;
+  mouseY = 480 / 2;
 }
 
 void draw() { 
